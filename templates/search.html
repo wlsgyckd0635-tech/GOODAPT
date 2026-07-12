@@ -1,7 +1,8 @@
+<!doctype html>
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
-    <title>검색 결과 | 맛집 스크래퍼</title>
+    <title>매물 검색 결과 | 대구 부동산 포털</title>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
@@ -9,10 +10,10 @@
   </head>
   <body>
     <main class="container">
-      <h1>
-        🔥 총 {{ count }}개의 '대구 수성구 {{ keyword }}' 데이터 수집 완료
-      </h1>
-      <p>교육센터(대흥동 알파시티) 및 시지 권역의 검색 결과 리스트입니다.</p>
+      <h1>🔍 대구광역시 부동산 '{{ keyword }}' 검색 결과</h1>
+      <p>
+        총 {{ count }}개의 실시간 아파트 매물 데이터셋 필터링 결과 리스트입니다.
+      </p>
 
       <div
         style="
@@ -23,7 +24,9 @@
         "
       >
         <a href="/download?keyword={{keyword}}">
-          <button class="contrast">수집된 데이터 CSV 파일로 저장하기</button>
+          <button style="background-color: #28a745; border: none">
+            수집된 매물 데이터 CSV 저장
+          </button>
         </a>
         <span
           style="
@@ -35,7 +38,7 @@
             border: 1px solid #ccc;
           "
         >
-          ℹ️ 데이터 출처: 식신(Siksin) 및 수성구 맛집 빅데이터
+          ℹ️ 데이터 출처: 네이버 부동산 및 대구 실거래가 포털
         </span>
       </div>
 
@@ -44,9 +47,10 @@
           <thead>
             <tr>
               <th style="width: 8%">No</th>
-              <th style="width: 35%">식당명</th>
-              <th style="width: 20%">음식 종류</th>
-              <th style="width: 37%">주소</th>
+              <th style="width: 35%">아파트 단지명(동)</th>
+              <th style="width: 20%">공급/전용 면적</th>
+              <th style="width: 22%">소재지</th>
+              <th style="width: 15%">매물 호가</th>
             </tr>
           </thead>
           <tbody>
@@ -54,8 +58,22 @@
             <tr>
               <td>{{ idx + 1 }}</td>
               <td><strong>{{ matzip.name }}</strong></td>
-              <td><mark>{{ matzip.category }}</mark></td>
+              <td>
+                <span
+                  style="
+                    background-color: #e8f5e9;
+                    color: #2e7d32;
+                    padding: 2px 6px;
+                    border-radius: 4px;
+                    font-weight: bold;
+                  "
+                  >{{ matzip.category }}</span
+                >
+              </td>
               <td>{{ matzip.address }}</td>
+              <td style="color: #d32f2f; font-weight: bold">
+                {{ matzip.price }}
+              </td>
             </tr>
             {% endfor %}
           </tbody>
