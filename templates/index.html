@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>대구 수성구 알파시티/시지 맛집 검색기</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
+  </head>
+  <body>
+    <main class="container" style="margin-top: 100px; max-width: 600px">
+      <h2 style="text-align: center">📍 수성 스마트시티센터 주변 맛집 포털</h2>
+      <p style="text-align: center; color: gray">
+        대흥동(알파시티) 및 시지 지역의 300개 이상 맛집 데이터를 실시간
+        수집합니다.
+      </p>
+
+      <form action="/search" method="get">
+        <input
+          type="text"
+          name="keyword"
+          placeholder="검색어를 입력하세요 (예: 맛집, 카페, 국밥, 삼겹살)"
+          required
+        />
+        <button type="submit">실시간 데이터 수집 및 검색</button>
+      </form>
+    </main>
+  </body>
+</html>
