@@ -1,86 +1,42 @@
-<!doctype html>
-<html lang="ko">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <title>매물 검색 결과 | 대구 부동산 포털</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
-    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>검색결과 | 아파트 실거래 정보</title>
   </head>
   <body>
-    <main class="container">
-      <h1>🔍 대구광역시 부동산 '{{ keyword }}' 검색 결과</h1>
-      <p>
-        총 {{ count }}개의 실시간 아파트 매물 데이터셋 필터링 결과 리스트입니다.
-      </p>
-
-      <div
-        style="
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          margin-bottom: 20px;
-        "
-      >
-        <a href="/download?keyword={{keyword}}">
-          <button style="background-color: #28a745; border: none">
-            수집된 매물 데이터 CSV 저장
-          </button>
-        </a>
-        <span
-          style="
-            background-color: #f4f5f6;
-            color: #555;
-            padding: 6px 12px;
-            border-radius: 6px;
-            font-weight: bold;
-            border: 1px solid #ccc;
-          "
+    <div class="w-full h-40">
+      <div class="w-5xl h-full mx-auto">
+        <h1
+          class="text-3xl h-full text-[#293681] font-bold flex justify-center items-center"
         >
-          ℹ️ 데이터 출처: 네이버 부동산 및 대구 실거래가 포털
-        </span>
-      </div>
-
-      <div>
-        <table>
+          17기 아파트 실거래 정보 데이터 검색 결과
+        </h1>
+        <table class="w-full">
           <thead>
             <tr>
-              <th style="width: 8%">No</th>
-              <th style="width: 35%">아파트 단지명(동)</th>
-              <th style="width: 20%">공급/전용 면적</th>
-              <th style="width: 22%">소재지</th>
-              <th style="width: 15%">매물 호가</th>
+              <th class="w-40 h-20">아파트이름</th>
+              <th class="w-40">실거래정보</th>
+              <th class="w-40">지역</th>
+              <th class="w-40">거래일</th>
+              <th class="w-40">평수</th>
             </tr>
           </thead>
           <tbody>
-            {% for idx, matzip in matzips %}
+            {% for result in results %}
             <tr>
-              <td>{{ idx + 1 }}</td>
-              <td><strong>{{ matzip.name }}</strong></td>
-              <td>
-                <span
-                  style="
-                    background-color: #f4f5f6;
-                    color: #555;
-                    padding: 6px 12px;
-                    border-radius: 6px;
-                    font-weight: bold;
-                    border: 1px solid #ccc;
-                  "
-                >
-                  ℹ️ 데이터 출처: 아실(ASIL) 실시간 실거래가 시스템 연동
-                </span>
+              <td class="h-20">{{ result["aptNm"] }}</td>
+              <td class="h-20">{{ result["dealAmount"] }}</td>
+              <td class="h-20">{{ result["estateAgentSggNm"] }}</td>
+              <td class="h-20">
+                {{ result["dealYear"] + "-" + result["dealMonth"] + "-" +
+                result["dealDay"] }}
               </td>
-              <td>{{ matzip.address }}</td>
-              <td style="color: #d32f2f; font-weight: bold">
-                {{ matzip.price }}
-              </td>
+              <td class="h-20">{{ result["excluUseAr"] }}</td>
             </tr>
             {% endfor %}
           </tbody>
         </table>
       </div>
-    </main>
+    </div>
   </body>
 </html>

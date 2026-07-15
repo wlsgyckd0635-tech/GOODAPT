@@ -1,67 +1,42 @@
-<!doctype html>
-<html lang="ko">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>대구광역시 부동산 실시간 매물 포털</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
-    />
-    <style>
-      body {
-        background-color: #f8f9fa;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 100vh;
-        margin: 0;
-      }
-      .search-card {
-        background: #ffffff;
-        padding: 40px;
-        border-radius: 12px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-        max-width: 650px;
-        width: 100%;
-        text-align: center;
-      }
-      .main-title {
-        font-size: 1.8rem;
-        font-weight: 800;
-        margin-bottom: 10px;
-        color: #111b27;
-        white-space: nowrap;
-      }
-      .sub-title {
-        color: #6c757d;
-        font-size: 0.95rem;
-        margin-bottom: 30px;
-      }
-      button {
-        background-color: #28a745;
-        border: none;
-      } /* 부동산 느낌의 초록 버튼 */
-      button:hover {
-        background-color: #218838;
-      }
-    </style>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>아파트 실거래 정보</title>
   </head>
   <body>
-    <main class="search-card">
-      <h2 class="main-title">🏢 대구광역시 부동산 실시간 매물 포털</h2>
-      <p class="sub-title">
-        대구 전역의 네이버 부동산 연동 매물 300개 이상을 조회합니다.
-      </p>
-      <form action="/search" method="get">
-        <input
-          type="text"
-          name="keyword"
-          placeholder="검색어를 입력하세요 (예: 수성구, 84㎡, 푸르지오, 아파트명)"
-          required
-        />
-        <button type="submit">실시간 매물 데이터 조회</button>
-      </form>
-    </main>
+    <div class="w-full h-40">
+      <div class="w-5xl h-full mx-auto">
+        <h1
+          class="text-3xl h-full text-[#293681] font-bold flex justify-center items-center"
+        >
+          17기 아파트 실거래 정보 데이터
+        </h1>
+
+        <div class="w-full">
+          <form action="/search" class="flex gap-4">
+            <select class="border w-40" name="DEAL_YMD">
+              <option value="202601">2026년 01월</option>
+              <option value="202602">2026년 02월</option>
+              <option value="202603">2026년 03월</option>
+              <option value="202604">2026년 04월</option>
+              <option value="202605">2026년 05월</option>
+              <option value="202606">2026년 06월</option>
+            </select>
+            <select class="border w-40" name="LAWD_CD">
+              <option value="27110">대구광역시 중구</option>
+              <option value="27260">대구광역시 수성구</option>
+              <option value="27170">대구광역시 서구</option>
+              <option value="27230">대구광역시 북구</option>
+              <option value="27140">대구광역시 동구</option>
+            </select>
+            <button
+              class="bg-blue-700 text-white px-4 py-2 rounded cursor-pointer"
+            >
+              조회하기
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
