@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 SERVICE_KEY = os.getenv("SERVICE_KEY")
-print(SERVICE_KEY)
+print()
 
 
 def fetch_apt_trade(LAWD_CD, DEAL_YMD):
