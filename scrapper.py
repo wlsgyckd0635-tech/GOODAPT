@@ -21,7 +21,7 @@ def fetch_apt_trade(LAWD_CD, DEAL_YMD):
         "serviceKey": serviceKey,
         "LAWD_CD": LAWD_CD, 
         "DEAL_YMD": DEAL_YMD,
-        "numOfRows": 50   # 추가된 값
+        "numOfRows": 30   # 추가된 값   << 공공데이터 설정하지 않을경우 기본값 10개정도만 출력됨
     }
 
     response = requests.get(URL, params=params)
@@ -37,5 +37,7 @@ def fetch_apt_trade(LAWD_CD, DEAL_YMD):
             row[child.tag] = child.text
         
         results.append(row)
+
+        results.sort(key=lambda x: (int(x.get("dealYear", 0)), int(x.get("dealMonth", 0)), int(x.get("dealDay", 0))))
 
     return results
