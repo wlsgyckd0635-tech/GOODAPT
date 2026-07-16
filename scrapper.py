@@ -20,7 +20,8 @@ def fetch_apt_trade(LAWD_CD, DEAL_YMD):
     params={
         "serviceKey": serviceKey,
         "LAWD_CD": LAWD_CD, 
-        "DEAL_YMD": DEAL_YMD
+        "DEAL_YMD": DEAL_YMD,
+        "numOfRows": 50   # 추가된 값
     }
 
     response = requests.get(URL, params=params)
