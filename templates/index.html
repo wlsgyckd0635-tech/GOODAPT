@@ -4,17 +4,21 @@
     <title>아파트 실거래 정보</title>
   </head>
   <body>
-    <div class="w-full h-40">
+    <div class="w-full h-80">
       <div class="w-5xl h-full mx-auto">
         <h1
-          class="text-3xl h-full text-[#293681] font-bold flex justify-center items-center"
+          class="text-5xl h-full text-[#293681] font-bold flex justify-center items-center"
         >
           대구광역시 아파트 실거래 정보 데이터
         </h1>
 
         <div class="w-full">
           <form action="/search" class="flex gap-4">
-            <select class="border w-40" name="DEAL_YMD">
+            <select
+              class="border w-80 text-center"
+              style="text-align-last: center"
+              name="DEAL_YMD"
+            >
               <option value="202601">2026년 01월</option>
               <option value="202602">2026년 02월</option>
               <option value="202603">2026년 03월</option>
@@ -23,21 +27,26 @@
               <option value="202606">2026년 06월</option>
               <option value="202607">2026년 07월</option>
             </select>
-            <select class="border w-40" name="LAWD_CD">
-              <option value="27230">대구광역시 북구</option>
+            <!-- 💡 마찬가지로 text-center와 인라인 style을 동일하게 적용했습니다 -->
+            <select
+              class="border w-80 text-center"
+              style="text-align-last: center"
+              name="LAWD_CD"
+            >
               <option value="27110">대구광역시 중구</option>
-              <option value="27200">대구광역시 남구</option>
-              <option value="27170">대구광역시 서구</option>
               <option value="27140">대구광역시 동구</option>
+              <option value="27170">대구광역시 서구</option>
+              <option value="27200">대구광역시 남구</option>
+              <option value="27230">대구광역시 북구</option>
               <option value="27260">대구광역시 수성구</option>
               <option value="27290">대구광역시 달서구</option>
               <option value="27710">대구광역시 달성군</option>
               <option value="27720">대구광역시 군위군</option>
             </select>
             <button
-              class="bg-blue-700 text-white px-4 py-2 rounded cursor-pointer"
+              class="bg-gray-700 text-white px-4 py-2 rounded cursor-pointer"
             >
-              조회하기
+              검색하기
             </button>
           </form>
         </div>
